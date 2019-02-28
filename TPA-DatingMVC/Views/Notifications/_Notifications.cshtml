@@ -1,0 +1,23 @@
+﻿@model List<Datalayer.Models.RequestModels>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 bg-secondary">
+            <h3 class="card-title mb-2">Contact Request</h3>
+            @foreach (var request in Model) {
+                <div class="card card-body mb-2">
+                    <div class="media">
+                        <a href="@Url.Action("Index","Profile", new { id = request.RequestFromID})" class="card-link">
+                            <img class="mr-3" src="@Url.Action("RenderProfilePicture","Profile", new { id = request.RequestFromID})" width="32 height="32" />
+                        </a>
+                        <div class="media-body">
+                            <a href="@Url.Action("Index","Profile", new { id = request.RequestFromID})" class="card-link">
+                                <span class="badge badge-light">@request.RequestFrom.FirstName @request.RequestFrom.LastName</span> 
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

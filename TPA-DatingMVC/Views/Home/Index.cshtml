@@ -1,0 +1,23 @@
+﻿@model List<Datalayer.Models.ProfileModels>
+@{
+    ViewBag.Title = "Welcome to TPA Dating";
+}
+
+<div class=" container">
+    <div class="row d-flex justify-content-center">
+        @foreach(var profile in Model) {
+            <div class="col-md-4 card">
+                <a href="@Url.Action("Index","Profile", new { id = profile.ProfileID})" class="card-link">
+                    <img class="card-img-top img-fluid img-thumbnail" src="@Url.Action("RenderProfilePicture", "Profile", new { id = profile.ProfileID})"/>
+                </a>
+                <div class="card-body">
+                    <a href="@Url.Action("Index","Profile", new { id = profile.ProfileID})" class="card-link">
+                        <h4 class="card-title">@profile.FirstName @profile.LastName</h4>
+                    </a>
+                    <p class="card-text">@profile.Bio</p>
+                    @Html.ActionLink("View Profile", "Index", "Profile", new { id = profile.ProfileID}, new { @class="btn btn-secondary"})
+                </div>
+            </div>
+        }
+    </div>
+</div>

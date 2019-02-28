@@ -1,0 +1,62 @@
+﻿@model TPA_DatingMVC.Models.ProfileViewModel
+
+@{
+    ViewBag.Title = "Welcome to your profile-page";
+}
+
+<div class="container">
+    <div class="row" data-profile-id="@Model.ProfileID">
+        <div class="col-md-4">
+            <img src="@Url.Action("RenderProfilePicture", "Profile", new { id = Model.ProfileID })" id="profile-img" class="img-fluid img-thumbnail" />
+            <br />
+            <strong>Name</strong><br />
+            @Html.DisplayFor(profile => profile.FirstName) @Html.DisplayFor(profile => profile.LastName)<br />
+            <strong>Age</strong><br />
+            @Html.DisplayFor(profile => profile.DateOfBirth)<br />
+            <strong>Biography</strong><br />
+            @Html.DisplayFor(profile => profile.Bio)<br />
+            <strong>Gender</strong><br />
+            @Html.DisplayFor(profile => profile.Gender)<br />
+
+            @if (Request.IsAuthenticated && !Model.CurrentUser.Equals(Model.ProfileID)) {
+                switch (Model.Relation) {
+                        case "Contacts":
+                        break;
+                        case "IncomingRequest":
+                             <div id="RequestBtnGroup" class="mt-3">
+                            <button type="button" id="AcceptBtn" class="btn btn-sm btn-success">Accept</button>
+                            <button type="button" id="DeclineBtn" class="btn btn-sm btn-danger">Decline</button>
+                             </div>
+                            <button type="button" id="RequestBtn" class="btn btn-sm btn-secondary d-none mt-3">Send Request</button>
+                        break;
+                        case "OutgoingRequest":
+                        <button type="button" id="RequestBtn" class="btn btn-sm btn-secondary mt-3">Cancel Request</button>
+
+                        break;
+                        case "None":
+                        <button type="button" id="RequestBtn" class="btn btn-sm btn-secondary mt-3">Send Request</button>
+                        break;
+
+                }
+            }
+
+            @if (Request.IsAuthenticated && Model.CurrentUser.Equals(Model.ProfileID)) {
+                <br />
+                @Html.ActionLink("Edit Profile", "EditProfile", "Profile", new { area = "" }, new { @class = "mb-1 btn btn-warning" })
+                <br />
+                @Html.ActionLink("Edit Account", "Index", "Manage", new { area = "" }, new { @class = "mt-1 btn btn-warning" })
+            }
+        </div>
+        <div class="col-md-5" id="PostWall">
+            @Html.Partial("_PostWall", Model.Posts)
+        </div>
+        <div class="col-md-3" id="Contacts">
+            @Html.Partial("_Contacts", Model.Contacts)
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/custom/profile-post.js"></script>
+    <script src="~/Scripts/custom/profile-requests.js"></script>
+}

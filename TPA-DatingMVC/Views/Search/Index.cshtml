@@ -1,0 +1,35 @@
+﻿@model List<Datalayer.Models.ProfileModels>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Search for users</h2>
+            <input type="text" class="form-control" id="SearchField" placeholder="Find new contacts" />
+        </div>
+        <div class="col-md-12 mt-3">
+            @foreach (var profile in Model) {
+                <div class="card border-secondary mb-3">
+                    <div class="card-body">
+                        <div class="media">
+                            <a href="@Url.Action("Index", "Profile", new { id= profile.ProfileID })" class="card-link">
+                                <img class="mr-3" src="@Url.Action("RenderProfilePicture", "Profile", new { id = profile.ProfileID })" height="32" width="32" />
+                            </a>
+                            <div class="media-body">
+                                <a href="@Url.Action("Index", "Profile", new { id= profile.ProfileID})" class="card-link">
+                                    <span class="badge badge-primary personal-info">@profile.FirstName  @profile.LastName</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/Scripts/custom/search.js"></script>
+}

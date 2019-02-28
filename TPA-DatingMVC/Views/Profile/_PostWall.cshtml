@@ -1,0 +1,40 @@
+﻿@model  TPA_DatingMVC.Models.PostViewModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card border boder-darrk bg-light mb-4" id="CreatePost">
+
+                <div class="card-header"><h4 class="card-title">Write something on your contacts wall</h4></div>
+                <div class="card-body"><textarea class="form-control card-text" id="PostContent" placeholder="What do you want to tell your contact..?"></textarea></div>
+                <div class="card-footer d-flex justify-content-end"><button type="button" class="btn btn-sm btn-primary" id="SubmitPost">Send</button></div>
+            </div>
+            @foreach (var post in Model.Posts) {
+                <div class="card border border-primary bg-light mb-4">
+                    <div class="card-header">
+                        <div class="media">
+                            <a href="@Url.Action("Index", "Profile", new { id = post.PostFromID})" class="card-link">
+                                <img src="@Url.Action("RenderProfilePicture", "Profile", new { id= post.PostFromID })" height="32" width="32" class="mr-3" />
+
+                            </a>
+                            <div class="media-body">
+                                <a href="@Url.Action("Index", "Profile", new { id = post.PostFromID})" class="card-link">
+                                    <div class="badge badge-light">@post.PostFrom.FirstName @post.PostFrom.LastName</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">@post.PostContent</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-text">
+                            <strong>Published: </strong>
+                            @post.PostTimeStamp
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+C:\Users\perni\source\repos\TPA-Dating\Datalayer\bin\Debug\Datalayer.dll.config
+C:\Users\perni\source\repos\TPA-Dating\Datalayer\bin\Debug\Datalayer.dll
+C:\Users\perni\source\repos\TPA-Dating\Datalayer\bin\Debug\Datalayer.pdb
+C:\Users\perni\source\repos\TPA-Dating\Datalayer\bin\Debug\EntityFramework.dll
+C:\Users\perni\source\repos\TPA-Dating\Datalayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\perni\source\repos\TPA-Dating\Datalayer\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\perni\source\repos\TPA-Dating\Datalayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\perni\source\repos\TPA-Dating\Datalayer\bin\Debug\EntityFramework.xml
+C:\Users\perni\source\repos\TPA-Dating\Datalayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\perni\source\repos\TPA-Dating\Datalayer\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\perni\source\repos\TPA-Dating\Datalayer\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\perni\source\repos\TPA-Dating\Datalayer\obj\Debug\Datalayer.csproj.CoreCompileInputs.cache
+C:\Users\perni\source\repos\TPA-Dating\Datalayer\obj\Debug\Datalayer.csproj.CopyComplete
+C:\Users\perni\source\repos\TPA-Dating\Datalayer\obj\Debug\Datalayer.dll
+C:\Users\perni\source\repos\TPA-Dating\Datalayer\obj\Debug\Datalayer.pdb
+C:\Users\perni\source\repos\TPA-Dating\Datalayer\obj\Debug\Datalayer.csprojAssemblyReference.cache

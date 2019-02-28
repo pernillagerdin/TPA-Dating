@@ -1,0 +1,44 @@
+﻿@model TPA_DatingMVC.Models.ContactViewModel
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Contacts</h2>
+            @foreach (var contact in Model.Contacts) {
+                <div class="card border border-secondary bg-light mb-3">
+                    <div class="card-body">
+                        @if (contact.ContactAID.Equals(Model.CurrentProfileID)) {
+                            <div class="media">
+                                <a href="@Url.Action("Index", "Profile", new { id = contact.ContactBID })" class="card-link">
+                                    <img src="@Url.Action("RenderProfilePicture", "Profile", new { id = contact.ContactBID })" height="32" width="32" class="mr-3" />
+                                </a>
+                                <div class="media-body">
+                                    <a href="@Url.Action("Index", "Profile", new { id = contact.ContactBID })" class="card-link">
+                                        <div class="badge badge-light">@contact.ContactB.FirstName @contact.ContactB.LastName</div>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                        }
+                        else if (contact.ContactBID.Equals(Model.CurrentProfileID)) {
+                            <div class="media">
+                                <a href="@Url.Action("Index", "Profile", new { id = contact.ContactAID })" class="card-link">
+                                    <img src="@Url.Action("RenderProfilePicture", "Profile", new { id = contact.ContactAID })" height="32" width="32" class="mr-3" />
+                                </a>
+                                <div class="media-body">
+                                    <a href="@Url.Action("Index", "Profile", new { id = contact.ContactAID })" class="card-link">
+                                        <div class="badge badge-light">@contact.ContactA.FirstName @contact.ContactA.LastName</div>
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

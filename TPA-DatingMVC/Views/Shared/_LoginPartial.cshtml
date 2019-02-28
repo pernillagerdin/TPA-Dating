@@ -1,0 +1,46 @@
+﻿@using TPA_DatingMVC.Extensions
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated) {
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" })) {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item mr-1">
+                <div id="GlobalNotifications">
+                    <i class="far fa-bell" id="NotificationBell">
+                        <sup>
+                            <span class="badge badge-light" id="NotificationNumberSpan"></span>
+                        </sup>
+                    </i>
+                </div>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Profile", new { id = User.Identity.GetUserId() })" class="nav-link">
+                    <i class="mr-1 far fa-address-card"></i>@User.Identity.GetDisplayName()
+                </a>
+            </li>
+            <li>
+                <a href="javascript:document.getElementById('logoutForm').submit()" class="nav-link">
+                    <i class="mr-1 fas fa-sign-out-alt"></i>Log off
+                </a>
+            </li>
+        </ul>
+    }
+}
+else {
+    <ul class="nav navbar-nav navbar-right">
+
+        <li class="nav-item">
+            <a href="@Url.Action("Register", "Account")" id="registerLink" , class="nav-link">
+                <i class="mr-1 fas fa-user"></i> Register
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="@Url.Action("Login", "Account")" id="loginLink" , class="nav-link">
+                <i class="mr-1 fas fa-sign-in-alt"></i>Log in
+            </a>
+        </li>
+
+    </ul>
+}
